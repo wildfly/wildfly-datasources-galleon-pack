@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<layer-spec xmlns="urn:jboss:galleon:layer-spec:2.0" name="postgresql-xa-datasource">
+    <props>
+        <prop name="org.wildfly.rule.configuration" value="https://raw.githubusercontent.com/wildfly-extras/wildfly-datasources-galleon-pack/main/doc/postgresql/env.yaml"/>
+        <prop name="org.wildfly.rule.add-on" value="database,postgresql"/>
+        <prop name="org.wildfly.rule.add-on-description" value="Documentation in https://github.com/wildfly-extras/wildfly-datasources-galleon-pack"/>
+        <prop name="org.wildfly.rule.add-on-fix-unbound-datasources" value="JNDI env,POSTGRESQL_JNDI=##ITEM##"/>
+        <prop name="org.wildfly.rule.add-on-depends-on" value="only:datasources"/>
+    </props>
+    <dependencies>
+        <layer name="datasources"/>
+        <layer name="postgresql-driver"/>
+    </dependencies>
+    
+    <feature spec="subsystem.datasources.xa-data-source">
+        <!-- we can't use expression for pool-name (xa-data-source name) hard coding should be fine, the important thing is JNDI -->
+        <param name="xa-data-source" value="PostgreSQLXADS"/>
+        <param name="enabled" value="${org.wildfly.datasources.postgresql.enabled, env.POSTGRESQL_ENABLED:true}"/>
+        <param name="exception-sorter-class-name" value="${org.wildfly.datasources.postgresql.exception-sorter-class-name, env.POSTGRESQL_EXCEPTION_SORTER:org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter}"/>
+        <param name="idle-timeout-minutes" value="${org.wildfly.datasources.postgresql.idle-timeout-minutes,env.POSTGRESQL_IDLE_TIMEOUT_MINUTES:30}"/>
+        <param name="jndi-name" value="${org.wildfly.datasources.postgresql.jndi-name,env.POSTGRESQL_JNDI:java:jboss/datasources/${org.wildfly.datasources.postgresql.datasource, env.POSTGRESQL_DATASOURCE,env.OPENSHIFT_POSTGRESQL_DATASOURCE:PostgreSQLXADS}}"/>
+        <param name="jta" value="${org.wildfly.datasources.postgresql.jta,env.POSTGRESQL_JTA:true}"/>
+        <param name="max-pool-size" value="${org.wildfly.datasources.postgresql.max-pool-size,env.POSTGRESQL_MAX_POOL_SIZE:20}"/>
+        <param name="min-pool-size" value="${org.wildfly.datasources.postgresql.min-pool-size,env.POSTGRESQL_MIN_POOL_SIZE:0}"/>
+        <param name="connection-url" value="${org.wildfly.datasources.postgresql.connection-url,env.POSTGRESQL_URL:jdbc:postgresql://${org.wildfly.datasources.postgresql.host,env.POSTGRESQL_SERVICE_HOST,env.OPENSHIFT_POSTGRESQL_DB_HOST,env.POSTGRESQL_HOST:localhost}:${org.wildfly.datasources.postgresql.port,env.POSTGRESQL_SERVICE_PORT,env.OPENSHIFT_POSTGRESQL_DB_PORT,env.POSTGRESQL_PORT:5432}/${org.wildfly.datasources.postgresql.database,env.POSTGRESQL_DATABASE,env.OPENSHIFT_POSTGRESQL_DB_NAME}}"/>
+        <param name="driver-name" value="postgresql"/>
+        <param name="user-name" value="${org.wildfly.datasources.postgresql.user-name,env.POSTGRESQL_USER,env.OPENSHIFT_POSTGRESQL_DB_USERNAME}"/>
+        <param name="password" value="${org.wildfly.datasources.postgresql.password,env.POSTGRESQL_PASSWORD,env.OPENSHIFT_POSTGRESQL_DB_PASSWORD}"/>
+        <param name="validate-on-match" value="${org.wildfly.datasources.postgresql.validate-on-match,env.POSTGRESQL_VALIDATE_ON_MATCH:true}"/>
+        <param name="background-validation" value="${org.wildfly.datasources.postgresql.background-validation,env.POSTGRESQL_BACKGROUND_VALIDATION:false}"/>
+        <param name="background-validation-millis" value="${org.wildfly.datasources.postgresql.background-validation-millis,env.POSTGRESQL_BACKGROUND_VALIDATION_MILLIS:10000}"/>
+        <param name="flush-strategy" value="${org.wildfly.datasources.postgresql.flush-strategy,env.POSTGRESQL_FLUSH_STRATEGY:FailingConnectionOnly}"/>
+        <param name="statistics-enabled" value="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}" />
+        <param name="stale-connection-checker-class-name" value="${org.wildfly.datasources.postgresql.stale-connection-checker-class-name,env.POSTGRESQL_STALE_CONNECTION_CHECKER:org.jboss.jca.adapters.jdbc.extensions.novendor.NullStaleConnectionChecker}" />
+        <param name="valid-connection-checker-class-name" value="${org.wildfly.datasources.postgresql.valid-connection-checker-class-name,env.POSTGRESQL_CONNECTION_CHECKER:org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker}"/>
+        <param name="transaction-isolation" value="${org.wildfly.datasources.postgresql.transaction-isolation,env.POSTGRESQL_TX_ISOLATION:TRANSACTION_READ_COMMITTED}"/>
+        <param name="blocking-timeout-wait-millis" value="${org.wildfly.datasources.postgresql.blocking-timeout-wait-millis,env.POSTGRESQL_BLOCKING_TIMEOUT_WAIT_MILLIS:1000}"/>
+        <param name="allocation-retry" value="${org.wildfly.datasources.postgresql.allocation-retry,env.POSTGRESQL_ALLOCATION_RETRY:5}"/>
+        <param name="allocation-retry-wait-millis" value="${org.wildfly.datasources.postgresql.allocation-retry-wait-millis,env.POSTGRESQL_ALLOCATION_RETRY_WAIT_MILLIS:200}"/>
+        <param name="xa-resource-timeout" value="${org.wildfly.datasources.postgresql.xa-resource-timeout,env.POSTGRESQL_XA_RESOURCE_TIMEOUT:60}"/>
+        <param name="xa-datasource-class" value="${org.wildfly.datasources.postgresql.xa-datasource-class,env.POSTGRESQL_XA_DATASOURCE_CLASS:org.postgresql.xa.PGXADataSource}"/>
+    </feature>
+</layer-spec>
+

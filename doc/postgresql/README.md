@@ -148,3 +148,32 @@ Optional configuration
   * Default Value: `true`
   * System Property: `org.wildfly.datasources.postgresql.validate-on-match`
 
+* `POSTGRESQL_BLOCKING_TIMEOUT_WAIT_MILLIS`
+
+  * Description: Specifies the maximum time, in milliseconds, that a connection factory will block waiting for a connection to be available.
+  * Default Value: `1000`
+  * System Property: `org.wildfly.datasources.postgresql.blocking-timeout-wait-millis`
+
+* `POSTGRESQL_ALLOCATION_RETRY`
+
+  * Description: Specifies the number of times to retry allocation of a connection before failing.
+  * Default Value: `5`
+  * System Property: `org.wildfly.datasources.postgresql.allocation-retry`
+
+* `POSTGRESQL_ALLOCATION_RETRY_WAIT_MILLIS`
+
+  * Description: Specifies the time, in milliseconds, to wait between allocation retries.
+  * Default Value: `200`
+  * System Property: `org.wildfly.datasources.postgresql.allocation-retry-wait-millis`
+
+* `POSTGRESQL_XA_RESOURCE_TIMEOUT`
+
+  * Description: Specifies the timeout, in seconds, for the XA resource.
+  * Default Value: `60`
+  * System Property: `org.wildfly.datasources.postgresql.xa-resource-timeout`
+
+* `POSTGRESQL_XA_DATASOURCE_CLASS`
+
+    * Description: Specifies the XA datasource class name.
+    * Default Value: `org.postgresql.xa.PGXADataSource`
+    * System Property: `org.wildfly.datasources.postgresql.xa-datasource-class`
