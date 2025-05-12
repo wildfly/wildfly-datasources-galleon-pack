@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <layer-spec xmlns="urn:jboss:galleon:layer-spec:2.0" name="postgresql-default-xa-datasource">
     <props>
-        <prop name="org.wildfly.rule.add-on" value="database,postgresql:default"/>
+        <prop name="org.wildfly.rule.add-on" value="database,postgresql-xa:default"/>
         <prop name="org.wildfly.rule.add-on-description" value="Documentation in https://github.com/wildfly-extras/wildfly-datasources-galleon-pack"/>
         <prop name="org.wildfly.rule.add-on-fix-no-default-datasource" value=""/>
         <prop name="org.wildfly.rule.configuration" value="https://raw.githubusercontent.com/wildfly-extras/wildfly-datasources-galleon-pack/main/doc/postgresql/env.yaml"/>
@@ -9,7 +9,7 @@
     </props>
     <dependencies>
         <layer name="datasources"/>
-        <layer name="postgresql-datasource"/>
+        <layer name="postgresql-xa-datasource"/>
     </dependencies>
     
     <feature spec="subsystem.ee.service.default-bindings">

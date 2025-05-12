@@ -29,7 +29,7 @@ Required configuration
 
 * `POSTGRESQL_URL`
 
-  * Description: Defines the connection URL for the datasource. 
+  * Description: Defines the connection URL for the datasource. Applies to non-XA datasource only. 
   * Default Value: `jdbc:postgresql://${POSTGRESQL_HOST}:${POSTGRESQL_PORT}/${POSTGRESQL_DATABASE}`
   * Required: True if `POSTGRESQL_PORT/HOST/DATABASE` are not set.
   * System Property: `org.wildfly.datasources.postgresql.connection-url`
