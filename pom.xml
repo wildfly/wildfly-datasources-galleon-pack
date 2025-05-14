@@ -52,7 +52,7 @@
         <version.org.jboss.jboss-dmr>1.7.0.Final</version.org.jboss.jboss-dmr>
         <version.org.jboss.shrinkwrap>1.2.6</version.org.jboss.shrinkwrap>
         <version.org.mariadb>3.5.2</version.org.mariadb>
-        <version.org.wildfly>36.0.0.Final</version.org.wildfly>
+        <version.org.wildfly>36.0.1.Final</version.org.wildfly>
         <version.org.wildfly.core>28.0.0.Final</version.org.wildfly.core>
         <version.org.wildfly.jar.plugin>12.0.0.Final</version.org.wildfly.jar.plugin>
         <version.jakarta.annotations>3.0.0</version.jakarta.annotations>
