@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <layer-spec xmlns="urn:jboss:galleon:layer-spec:2.0" name="mssqlserver-default-datasource">
     <props>
+      <prop name="org.wildfly.category" value="Database"/>
         <prop name="org.wildfly.rule.add-on" value="database,mssqlserver:default"/>
         <prop name="org.wildfly.rule.add-on-description" value="Documentation in https://github.com/wildfly-extras/wildfly-datasources-galleon-pack"/>
         <prop name="org.wildfly.rule.add-on-fix-no-default-datasource" value=""/>
