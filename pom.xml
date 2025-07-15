@@ -41,9 +41,9 @@
         <!-- Require Java 11 -->
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.source>11</maven.compiler.source>
-        <version.org.postgresql.postgresql>42.7.5</version.org.postgresql.postgresql>
+        <version.org.postgresql.postgresql>42.7.7</version.org.postgresql.postgresql>
         <version.com.h2database>2.3.232</version.com.h2database>
-        <version.com.ibm.db2>11.5.9.0</version.com.ibm.db2>
+        <version.com.ibm.db2>12.1.2.0</version.com.ibm.db2>
         <version.com.microsoft.sqlserver>9.4.0.jre8</version.com.microsoft.sqlserver>
         <version.com.oracle.ojdbc17>23.6.0.24.10</version.com.oracle.ojdbc17>
         <version.inject>1</version.inject>
@@ -51,8 +51,8 @@
         <version.com.mysql.mysql-connector-j>9.1.0</version.com.mysql.mysql-connector-j>
         <version.org.jboss.jboss-dmr>1.7.0.Final</version.org.jboss.jboss-dmr>
         <version.org.jboss.shrinkwrap>1.2.6</version.org.jboss.shrinkwrap>
-        <version.org.mariadb>3.5.2</version.org.mariadb>
         <version.org.wildfly>36.0.1.Final</version.org.wildfly>
+        <version.org.mariadb>3.5.4</version.org.mariadb>
         <version.org.wildfly.core>28.0.0.Final</version.org.wildfly.core>
         <version.org.wildfly.jar.plugin>12.0.0.Final</version.org.wildfly.jar.plugin>
         <version.jakarta.annotations>3.0.0</version.jakarta.annotations>
