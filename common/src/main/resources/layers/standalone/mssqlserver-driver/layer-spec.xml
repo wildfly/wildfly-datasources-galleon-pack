@@ -11,7 +11,6 @@
     </dependencies>
     <feature spec="subsystem.datasources">
         <feature spec="subsystem.datasources.jdbc-driver">
-            <param name="driver-name" value="mssqlserver"/>
             <param name="jdbc-driver" value="mssqlserver"/>
             <param name="driver-xa-datasource-class-name" value="com.microsoft.sqlserver.jdbc.SQLServerXADataSource"/>
             <param name="driver-module-name" value="com.microsoft.sqlserver"/>

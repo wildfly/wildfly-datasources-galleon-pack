@@ -11,7 +11,6 @@
     </dependencies>
     <feature spec="subsystem.datasources">
         <feature spec="subsystem.datasources.jdbc-driver">
-            <param name="driver-name" value="db2"/>
             <param name="jdbc-driver" value="db2"/>
             <param name="driver-xa-datasource-class-name" value="com.ibm.db2.jcc.DB2XADataSource"/>
             <param name="driver-module-name" value="com.ibm.db2"/>

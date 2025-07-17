@@ -11,7 +11,6 @@
     </dependencies>
     <feature spec="subsystem.datasources">
         <feature spec="subsystem.datasources.jdbc-driver">
-            <param name="driver-name" value="oracle"/>
             <param name="jdbc-driver" value="oracle"/>
             <param name="driver-xa-datasource-class-name" value="oracle.jdbc.xa.client.OracleXADataSource"/>
             <param name="driver-module-name" value="com.oracle.database.jdbc"/>
