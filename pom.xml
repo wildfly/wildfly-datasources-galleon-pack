@@ -62,7 +62,7 @@
         <wildfly.repo.scm.url>https://github.com/wildfly/wildfly-datasources-galleon-pack</wildfly.repo.scm.url>
         <!-- release -->
         <version.gpg.plugin>3.2.8</version.gpg.plugin>
-        <version.nxrm3.plugin>1.0.7</version.nxrm3.plugin>
+        <version.nxrm3.plugin>1.0.11</version.nxrm3.plugin>
         <!-- maven-gpg-plugin -->
         <!-- set this to "error" to require a GPG agent-->
         <gpg.pinEntryMode>loopback</gpg.pinEntryMode>
