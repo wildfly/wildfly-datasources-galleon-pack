@@ -41,7 +41,7 @@
         <!-- Require Java 11 -->
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.source>11</maven.compiler.source>
-        <version.org.postgresql.postgresql>42.7.7</version.org.postgresql.postgresql>
+        <version.org.postgresql.postgresql>42.7.8</version.org.postgresql.postgresql>
         <version.com.h2database>2.3.232</version.com.h2database>
         <version.com.ibm.db2>12.1.2.0</version.com.ibm.db2>
         <version.com.microsoft.sqlserver>9.4.0.jre8</version.com.microsoft.sqlserver>
