@@ -44,7 +44,7 @@
         <version.org.postgresql.postgresql>42.7.8</version.org.postgresql.postgresql>
         <version.com.h2database>2.3.232</version.com.h2database>
         <version.com.ibm.db2>12.1.2.0</version.com.ibm.db2>
-        <version.com.microsoft.sqlserver>9.4.0.jre8</version.com.microsoft.sqlserver>
+        <version.com.microsoft.sqlserver>13.2.0.jre11</version.com.microsoft.sqlserver>
         <version.com.oracle.ojdbc17>23.9.0.25.07</version.com.oracle.ojdbc17>
         <version.inject>1</version.inject>
         <version.junit>4.13.2</version.junit>
