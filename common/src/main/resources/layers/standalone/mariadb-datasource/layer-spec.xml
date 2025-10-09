@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <layer-spec xmlns="urn:jboss:galleon:layer-spec:2.0" name="mariadb-datasource">
     <props>
+      <prop name="org.wildfly.category" value="Database"/>
         <prop name="org.wildfly.rule.configuration" value="https://raw.githubusercontent.com/wildfly-extras/wildfly-datasources-galleon-pack/main/doc/mariadb/env.yaml"/>
         <prop name="org.wildfly.rule.add-on" value="database,mariadb"/>
         <prop name="org.wildfly.rule.add-on-description" value="Documentation in https://github.com/wildfly-extras/wildfly-datasources-galleon-pack"/>

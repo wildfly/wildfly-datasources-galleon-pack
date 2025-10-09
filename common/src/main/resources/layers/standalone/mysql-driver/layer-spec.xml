@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <layer-spec xmlns="urn:jboss:galleon:layer-spec:2.0" name="mysql-driver">
     <props>
+      <prop name="org.wildfly.category" value="Database"/>
         <prop name="org.wildfly.rule.xml-path" value="[/META-INF/*.xml,/WEB-INF/*.xml],/datasources/datasource/driver,mysql"/>
         <prop name="org.wildfly.rule.xml-path-xa" value="[/META-INF/*.xml,/WEB-INF/*.xml],/datasources/xa-datasource/driver,mysql"/>
         <prop name="org.wildfly.rule.annotation.field.value-url" value="jakarta.annotation.sql.DataSourceDefinition,url=jdbc:mysql:*"/>
