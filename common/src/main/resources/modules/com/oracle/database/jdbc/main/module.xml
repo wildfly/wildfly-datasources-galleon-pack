@@ -5,6 +5,8 @@
     </resources>
     <dependencies>
         <module name="wildflyee.api"/>
+        <module name="jdk.net"/>
+        <module name="jdk.security.jgss"/>
     </dependencies>
 </module>
 
