@@ -12,15 +12,9 @@ on:
     types: [opened, synchronize, reopened, ready_for_review]
 
 jobs:
-  WildFly-build:
-    uses: wildfly/wildfly/.github/workflows/shared-wildfly-build.yml@main
-    with:
-      wildfly-branch: main
-      wildfly-repo: "wildfly/wildfly"
   build:
     name: ${{ matrix.os }}-jdk${{ matrix.java }}
     runs-on: ${{ matrix.os }}
-    needs: [WildFly-build]
     strategy:
       fail-fast: false
       matrix:
@@ -29,21 +23,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v4
-        with:
-          name: wildfly-maven-repository
-          path: .
-      - name: Extract Maven Repo
-        shell: bash
-        run: tar -xzf wildfly-maven-repository.tar.gz -C ~
       - name: Set up JDK ${{ matrix.java }}
         uses: actions/setup-java@v3
         with:
           java-version: ${{ matrix.java }}
           distribution: 'temurin'
+          cache: 'maven'
+      - uses: wildfly-extras/wildfly-nightly-download@v1
+        id: wildfly-nightly
       - name: Test
         run: |
-          version=${{ needs.WildFly-build.outputs.wildfly-version }}
+          version=${{steps.wildfly-nightly.outputs.wildfly-version}}
           echo "Testing with WildFly version $version"
           mvn clean install -Dversion.org.wildfly=$version
         shell: bash
