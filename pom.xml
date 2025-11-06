@@ -45,7 +45,7 @@
         <version.com.h2database>2.4.240</version.com.h2database>
         <version.com.ibm.db2>12.1.2.0</version.com.ibm.db2>
         <version.com.microsoft.sqlserver>13.2.1.jre11</version.com.microsoft.sqlserver>
-        <version.com.oracle.ojdbc17>23.9.0.25.07</version.com.oracle.ojdbc17>
+        <version.com.oracle.ojdbc17>23.26.0.0.0</version.com.oracle.ojdbc17>
         <version.inject>1</version.inject>
         <version.junit>4.13.2</version.junit>
         <version.com.mysql.mysql-connector-j>9.5.0</version.com.mysql.mysql-connector-j>
