@@ -22,7 +22,7 @@
     <parent>
         <groupId>org.wildfly</groupId>
         <artifactId>wildfly-datasources-galleon-pack-testsuite-parent</artifactId>
-        <version>11.2.0.Final</version>
+        <version>11.2.1.Final-SNAPSHOT</version>
     </parent>
     <artifactId>wildfly-datasources-galleon-pack-bootable-testsuite</artifactId>
     <name>Drivers and datasources for WildFly bootable testsuite</name>
