@@ -22,3 +22,6 @@ documentation:
 h2database:
   - "**/h2database/**/*"
   - "**/h2database-*/**/*"
+db2:
+  - "**/db2/**/*"
+  - "**/db2-*/**/*"
