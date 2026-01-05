@@ -57,7 +57,7 @@
         <version.org.wildfly.jar.plugin>12.0.0.Final</version.org.wildfly.jar.plugin>
         <version.jakarta.annotations>3.0.0</version.jakarta.annotations>
         <version.org.wildfy.glow>1.5.2.Final</version.org.wildfy.glow>
-        <version.org.wildfly.galleon-plugins>8.0.2.Final</version.org.wildfly.galleon-plugins>
+        <version.org.wildfly.galleon-plugins>8.1.0.Beta4</version.org.wildfly.galleon-plugins>
         <wildfly.repo.scm.connection>git@github.com:wildfly/wildfly-datasources-galleon-pack.git</wildfly.repo.scm.connection>
         <wildfly.repo.scm.url>https://github.com/wildfly/wildfly-datasources-galleon-pack</wildfly.repo.scm.url>
         <!-- release -->
