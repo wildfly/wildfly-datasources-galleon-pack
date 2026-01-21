@@ -24,7 +24,7 @@
     </parent>
     <groupId>org.wildfly</groupId>
     <artifactId>wildfly-datasources-galleon-pack-parent</artifactId>
-    <version>11.2.1.Final-SNAPSHOT</version>
+    <version>11.3.0.Final-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Drivers and datasources for WildFly parent</name>
   
@@ -52,9 +52,9 @@
         <version.org.jboss.jboss-dmr>1.7.0.Final</version.org.jboss.jboss-dmr>
         <version.org.jboss.shrinkwrap>1.2.6</version.org.jboss.shrinkwrap>
         <version.org.mariadb>3.5.7</version.org.mariadb>
-        <version.org.wildfly>38.0.0.Final</version.org.wildfly>
+        <version.org.wildfly>39.0.0.Final</version.org.wildfly>
         <version.org.wildfly.core>31.0.1.Final</version.org.wildfly.core>
-        <version.org.wildfly.jar.plugin>12.0.0.Final</version.org.wildfly.jar.plugin>
+        <version.org.wildfly.plugin>5.1.5.Final</version.org.wildfly.plugin>
         <version.jakarta.annotations>3.0.0</version.jakarta.annotations>
         <version.org.wildfy.glow>1.5.2.Final</version.org.wildfy.glow>
         <version.org.wildfly.galleon-plugins>8.1.0.Final</version.org.wildfly.galleon-plugins>
@@ -245,8 +245,8 @@
           </plugin>
           <plugin>
             <groupId>org.wildfly.plugins</groupId>
-            <artifactId>wildfly-jar-maven-plugin</artifactId>
-            <version>${version.org.wildfly.jar.plugin}</version>
+            <artifactId>wildfly-maven-plugin</artifactId>
+            <version>${version.org.wildfly.plugin}</version>
           </plugin>
           <plugin>
             <groupId>org.sonatype.plugins</groupId>
