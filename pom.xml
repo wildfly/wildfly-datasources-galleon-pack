@@ -43,7 +43,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <version.org.postgresql.postgresql>42.7.9</version.org.postgresql.postgresql>
         <version.com.h2database>2.4.240</version.com.h2database>
-        <version.com.ibm.db2>12.1.2.0</version.com.ibm.db2>
+        <version.com.ibm.db2>12.1.3.0</version.com.ibm.db2>
         <version.com.microsoft.sqlserver>13.2.1.jre11</version.com.microsoft.sqlserver>
         <version.com.oracle.ojdbc17>23.26.0.0.0</version.com.oracle.ojdbc17>
         <version.inject>1</version.inject>
