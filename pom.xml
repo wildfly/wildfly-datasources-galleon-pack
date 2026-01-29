@@ -48,7 +48,7 @@
         <version.com.oracle.ojdbc17>23.26.0.0.0</version.com.oracle.ojdbc17>
         <version.inject>1</version.inject>
         <version.junit>4.13.2</version.junit>
-        <version.com.mysql.mysql-connector-j>9.5.0</version.com.mysql.mysql-connector-j>
+        <version.com.mysql.mysql-connector-j>9.6.0</version.com.mysql.mysql-connector-j>
         <version.org.jboss.jboss-dmr>1.7.0.Final</version.org.jboss.jboss-dmr>
         <version.org.jboss.shrinkwrap>1.2.6</version.org.jboss.shrinkwrap>
         <version.org.mariadb>3.5.7</version.org.mariadb>
