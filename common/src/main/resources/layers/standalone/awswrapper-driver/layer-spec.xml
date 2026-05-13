@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<layer-spec xmlns="urn:jboss:galleon:layer-spec:2.0" name="awswrapper-driver">
+    <props>
+        <prop name="org.wildfly.category" value="Database"/>
+        <prop name="org.wildfly.rule.xml-path" value="[/META-INF/*.xml,/WEB-INF/*.xml],/datasources/datasource/driver,aws-wrapper"/>
+        <prop name="org.wildfly.rule.annotation.field.value-className" value="jakarta.annotation.sql.DataSourceDefinition,className=software.amazon.jdbc.*"/>
+    </props>
+    <dependencies>
+        <layer name="datasources"/>
+    </dependencies>
+    <feature spec="subsystem.datasources">
+        <feature spec="subsystem.datasources.jdbc-driver">
+            <param name="jdbc-driver" value="aws-wrapper"/>
+            <param name="driver-class-name" value="software.amazon.jdbc.Driver"/>
+            <param name="driver-module-name" value="software.amazon.jdbc"/>
+        </feature>
+    </feature>
+    <packages>
+        <package name="software.amazon.jdbc"/>
+    </packages>
+</layer-spec>
+

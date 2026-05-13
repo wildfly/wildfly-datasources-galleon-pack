@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module name="software.amazon.jdbc" xmlns="urn:jboss:module:1.8">
+    <resources>
+        <artifact name="${software.amazon.jdbc:aws-advanced-jdbc-wrapper}"/>
+    </resources>
+    <dependencies>
+        <module name="org.postgresql.jdbc" services="import" optional="true"/>
+        <module name="com.mysql.jdbc" services="import" optional="true"/>
+        <module name="org.mariadb.jdbc" services="import" optional="true"/>
+        <module name="wildflyee.api"/>
+        <module name="jdk.net"/>
+        <module name="jdk.security.jgss"/>
+    </dependencies>
+</module>
