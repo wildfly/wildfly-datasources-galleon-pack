@@ -42,16 +42,17 @@
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.source>11</maven.compiler.source>
         <version.org.postgresql.postgresql>42.7.9</version.org.postgresql.postgresql>
+        <version.software.amazon.jdbc.aws-advanced-jdbc-wrapper>4.0.0</version.software.amazon.jdbc.aws-advanced-jdbc-wrapper>
         <version.com.h2database>2.4.240</version.com.h2database>
         <version.com.ibm.db2>12.1.4.0</version.com.ibm.db2>
-        <version.com.microsoft.sqlserver>13.2.1.jre11</version.com.microsoft.sqlserver>
+        <version.com.microsoft.sqlserver>13.4.0.jre11</version.com.microsoft.sqlserver>
         <version.com.oracle.ojdbc17>23.26.0.0.0</version.com.oracle.ojdbc17>
         <version.inject>1</version.inject>
         <version.junit>4.13.2</version.junit>
         <version.com.mysql.mysql-connector-j>9.5.0</version.com.mysql.mysql-connector-j>
         <version.org.jboss.jboss-dmr>1.7.0.Final</version.org.jboss.jboss-dmr>
         <version.org.jboss.shrinkwrap>1.2.6</version.org.jboss.shrinkwrap>
-        <version.org.mariadb>3.5.7</version.org.mariadb>
+        <version.org.mariadb>3.5.8</version.org.mariadb>
         <version.org.wildfly>39.0.0.Final</version.org.wildfly>
         <version.org.wildfly.core>31.0.1.Final</version.org.wildfly.core>
         <version.org.wildfly.plugin>5.1.5.Final</version.org.wildfly.plugin>
@@ -133,6 +134,11 @@
                 <groupId>com.ibm.db2</groupId>
                 <artifactId>jcc</artifactId>
                 <version>${version.com.ibm.db2}</version>
+            </dependency>
+            <dependency>
+                <groupId>software.amazon.jdbc</groupId>
+                <artifactId>aws-advanced-jdbc-wrapper</artifactId>
+                <version>${version.software.amazon.jdbc.aws-advanced-jdbc-wrapper}</version>
             </dependency>
             <!-- tests -->
             <dependency>
