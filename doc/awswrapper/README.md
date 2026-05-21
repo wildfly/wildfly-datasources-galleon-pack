@@ -13,8 +13,14 @@ The following set of environment variables and corresponding Java system propert
 Using plugins (https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/UsingTheJdbcDriver.md#list-of-available-plugins) that require additional dependencies is currently not supported.
 
 * AWS Advanced JDBC Wrapper configuration parameters can be supplied in two ways:
-    * As part of the JDBC URL: `jdbc:aws-wrapper:postgresql://${POSTGRESQL_HOST}:${POSTGRESQL_PORT}/${POSTGRESQL_DATABASE}?wrapperLoggerLevel=DEBUG`
-    * Or as connection-properties in the underlying datasource: `/subsystem=datasources/data-source=PostgreSQLDS/connection-properties=wrapperLoggerLevel:add(value=DEBUG)`
+    * As part of the JDBC URL
+        * `jdbc:aws-wrapper:postgresql://${POSTGRESQL_HOST}:${POSTGRESQL_PORT}/${POSTGRESQL_DATABASE}?wrapperLoggerLevel=DEBUG`
+        * `jdbc:aws-wrapper:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE}?wrapperLoggerLevel=DEBUG`
+        * `jdbc:aws-wrapper:mariadb://${MARIADB_HOST}:${MARIADB_PORT}/${MARIADB_DATABASE}?wrapperLoggerLevel=DEBUG`
+    * Or as connection-properties in the underlying datasource
+        * `/subsystem=datasources/data-source=PostgreSQLDS/connection-properties=wrapperLoggerLevel:add(value=DEBUG)`
+        * `/subsystem=datasources/data-source=MySQLDS/connection-properties=wrapperLoggerLevel:add(value=DEBUG)`
+        * `/subsystem=datasources/data-source=MariaDBDS/connection-properties=wrapperLoggerLevel:add(value=DEBUG)`
 
 Required configuration
 ==============
@@ -35,12 +41,16 @@ The AWS Advanced JDBC Wrapper module imports all supported native JDBC datasourc
 
 * Driver: Bind the AWS Advanced JDBC Wrapper driver to the underlying datasource by overriding the `driver-name` parameter
     * `/subsystem=datasources/data-source=PostgreSQLDS:write-attribute(name=driver-name,value=aws-wrapper)`
+    * `/subsystem=datasources/data-source=MySQLDS:write-attribute(name=driver-name,value=aws-wrapper)`
+    * `/subsystem=datasources/data-source=MariaDBDS:write-attribute(name=driver-name,value=aws-wrapper)`
 
 
 * `clusterId`: wrapper configuration parameter, used to identify connections to different database clusters
     * If connecting to multiple database clusters, this parameter is required
     * Otherwise, it is optional
     * `/subsystem=datasources/data-source=PostgreSQLDS/connection-properties=clusterId:add(value=123)`
+    * `/subsystem=datasources/data-source=MySQLDS/connection-properties=clusterId:add(value=123)`
+    * `/subsystem=datasources/data-source=MariaDBDS/connection-properties=clusterId:add(value=123)`
     * For detailed information, see https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/ClusterId.md
 
 Optional configuration
