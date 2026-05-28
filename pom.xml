@@ -57,8 +57,9 @@
         <version.org.wildfly.core>31.0.3.Final</version.org.wildfly.core>
         <version.org.wildfly.plugin>6.0.0.Final</version.org.wildfly.plugin>
         <version.jakarta.annotations>3.0.0</version.jakarta.annotations>
-        <version.org.wildfy.glow>2.0.0.Final</version.org.wildfy.glow>
+        <version.org.wildfy.glow>2.1.0.Final</version.org.wildfy.glow>
         <version.org.wildfly.galleon-plugins>8.1.5.Final</version.org.wildfly.galleon-plugins>
+        <version.org.jboss.community.univers>1.2.2.Final</version.org.jboss.community.univers>
         <wildfly.repo.scm.connection>git@github.com:wildfly/wildfly-datasources-galleon-pack.git</wildfly.repo.scm.connection>
         <wildfly.repo.scm.url>https://github.com/wildfly/wildfly-datasources-galleon-pack</wildfly.repo.scm.url>
         <!-- release -->
@@ -192,6 +193,25 @@
                 <groupId>jakarta.annotation</groupId>
                 <artifactId>jakarta.annotation-api</artifactId>
                 <version>${version.jakarta.annotations}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly</groupId>
+                <artifactId>wildfly-galleon-pack</artifactId>
+                <version>${version.org.wildfly}</version>
+                <type>zip</type>
+                <exclusions>
+                    <exclusion>
+                        <groupId>*</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.universe</groupId>
+                <artifactId>community-universe</artifactId>
+                <version>${version.org.jboss.community.univers}</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>

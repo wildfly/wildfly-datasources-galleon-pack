@@ -29,39 +29,15 @@
     <description>Drivers and datasources for WildFly bootable layers and metadata tests</description>
 
     <dependencies>
-<!--
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>wildfly-datasources-galleon-pack</artifactId>
-            <version>${project.version}</version>
+            <groupId>org.wildfly</groupId>
+            <artifactId>wildfly-galleon-pack</artifactId>
             <type>zip</type>
-            <scope>provided</scope>
-        </dependency>
--->
-<!--
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>wildfly-datasources-preview-galleon-pack</artifactId>
-            <version>${project.version}</version>
-            <type>zip</type>
-            <scope>provided</scope>
-        </dependency>
--->
-<!--        <dependency>
-            <groupId>org.wildfly.core</groupId>
-            <artifactId>wildfly-core-test-runner</artifactId>
-            <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.wildfly.core</groupId>
-            <artifactId>wildfly-controller-client</artifactId>
-            <scope>test</scope>
+          <groupId>org.jboss.universe</groupId>
+          <artifactId>community-universe</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.jboss</groupId>
-            <artifactId>jboss-dmr</artifactId>
-            <scope>test</scope>
-        </dependency>-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

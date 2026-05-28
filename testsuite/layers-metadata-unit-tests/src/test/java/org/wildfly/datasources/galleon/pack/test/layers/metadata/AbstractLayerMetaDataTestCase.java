@@ -114,7 +114,7 @@ public class AbstractLayerMetaDataTestCase {
 
     protected Set<String> checkLayersForArchive(Path archivePath, String expectedLayer) throws Exception {
         Arguments arguments = Arguments.scanBuilder().setBinaries(Collections.singletonList(archivePath)).build();
-        ScanResults scanResults = GlowSession.scan(MavenResolver.newMavenResolver(), arguments, GlowMessageWriter.DEFAULT);
+        ScanResults scanResults = GlowSession.scan(MavenResolver.newOfflineMavenResolver(), arguments, GlowMessageWriter.DEFAULT);
         Set<String> foundLayers = scanResults.getDiscoveredLayers().stream().map(l -> l.getName()).collect(Collectors.toSet());
 
 
