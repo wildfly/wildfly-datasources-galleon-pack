@@ -41,8 +41,8 @@
         <!-- Require Java 11 -->
         <maven.compiler.target>17</maven.compiler.target>
         <maven.compiler.source>17</maven.compiler.source>
-
         <version.org.postgresql.postgresql>42.7.13</version.org.postgresql.postgresql>
+        <version.org.codehaus.mojo.properties-maven-plugin>1.0.0</version.org.codehaus.mojo.properties-maven-plugin>
         <version.software.amazon.jdbc.aws-advanced-jdbc-wrapper>4.1.0</version.software.amazon.jdbc.aws-advanced-jdbc-wrapper>
         <version.com.h2database>2.4.240</version.com.h2database>
         <version.com.ibm.db2>12.1.5.0</version.com.ibm.db2>
@@ -254,6 +254,11 @@
             <groupId>org.wildfly.plugins</groupId>
             <artifactId>wildfly-maven-plugin</artifactId>
             <version>${version.org.wildfly.plugin}</version>
+          </plugin>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>properties-maven-plugin</artifactId>
+            <version>${version.org.codehaus.mojo.properties-maven-plugin}</version>
           </plugin>
           <plugin>
             <groupId>org.sonatype.plugins</groupId>

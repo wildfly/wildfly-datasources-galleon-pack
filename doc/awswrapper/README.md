@@ -3,6 +3,24 @@ Galleon Layers
 
 * `awswrapper-driver`: Provision the `aws-wrapper` driver. This layer installs the JBoss Modules module `software.amazon.jdbc`.
 
+Build time configuration
+========================
+
+The following variable can be set at Galleon provisioning time to override the
+default driver version that is embedded in the feature pack.
+
+Optional configuration
+-----------------------
+
+* `AWSWRAPPER_DRIVER_VERSION`
+
+  * Description: The version of the `software.amazon.jdbc:aws-advanced-jdbc-wrapper` Maven artifact.
+    When set, this version is used instead of the default version bundled with the
+    feature pack.
+  * Default value: current version bundled with the feature pack
+  * Required: False
+  * System Property: `org.wildfly.datasources.awswrapper.driver.version`
+
 Configuration
 ========
 

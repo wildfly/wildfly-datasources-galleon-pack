@@ -5,6 +5,24 @@ Galleon Layers
 * `db2-datasource`: Provision the `DB2DS` non xa datasource. Depends on `db2-driver` layer.
 * `db2-driver`: Provision the `db2` driver. This layer installs the JBoss Modules module `com.ibm.db2`.
 
+Build time configuration
+========================
+
+The following variable can be set at Galleon provisioning time to override the
+default driver version that is embedded in the feature pack.
+
+Optional configuration
+-----------------------
+
+* `DB2_DRIVER_VERSION`
+
+  * Description: The version of the `com.ibm.db2:jcc` Maven artifact.
+    When set, this version is used instead of the default version bundled with the
+    feature pack.
+  * Default value: current version bundled with the feature pack
+  * Required: False
+  * System Property: `org.wildfly.datasources.db2.driver.version`
+
 Configuration
 ========
 

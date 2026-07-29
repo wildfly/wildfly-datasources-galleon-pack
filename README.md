@@ -70,11 +70,11 @@ You need to define a Galleon provisioning configuration file such as:
 ```
 <?xml version="1.0" ?>
 <installation xmlns="urn:jboss:galleon:provisioning:3.0">
-  <feature-pack location="org.wildfly:wildfly-galleon-pack:27.0.0.Final">
+  <feature-pack location="org.wildfly:wildfly-galleon-pack:41.0.0.Final">
     <default-configs inherit="false"/>
     <packages inherit="false"/>
   </feature-pack>
-  <feature-pack location="org.wildfly:wildfly-datasources-galleon-pack:3.0.0.Final">
+  <feature-pack location="org.wildfly:wildfly-datasources-galleon-pack:11.4.0.Final">
     <default-configs inherit="false"/>
     <packages inherit="false"/>
   </feature-pack>
@@ -106,10 +106,10 @@ You need to include the datasources feature-pack and layers in the Maven Plugin 
 ...
 <feature-packs>
   <feature-pack>
-    <location>org.wildfly:wildfly-galleon-pack:27.0.0.Final</location>
+    <location>org.wildfly:wildfly-galleon-pack:41.0.0.Final</location>
   </feature-pack>
   <feature-pack>
-    <location>org.wildfly:wildfly-datasources-galleon-pack:3.0.0.Final</location>
+    <location>org.wildfly:wildfly-datasources-galleon-pack:11.4.0.Final</location>
   </feature-pack>
 </feature-packs>
 <layers>
@@ -120,8 +120,40 @@ You need to include the datasources feature-pack and layers in the Maven Plugin 
 ...
 ```
 
-This [example](https://github.com/wildfly-extras/wildfly-jar-maven-plugin/tree/8.1.0.Final/examples/postgresql) 
-contains a complete WildFly JAR Maven Plugin configuration.
-
 This [example](https://github.com/wildfly/wildfly-s2i/tree/main/examples/postgresql) 
 contains a complete WildFly Maven Plugin configuration.
+
+### Configuring the driver version
+
+Starting with version 11.5.0.Final of the datasources feature-pack, you can provide the driver version as a system property.
+The documentation of each supported database contains the system property (or environment variable) to use.
+
+For example, to provide postgresql driver version when using the WildFly Maven plugin call:
+
+```
+mvn clean install -Dorg.wildfly.datasources.postgresql.driver.version=42.7.10
+```
+
+You can also configure the `properties-maven-plugin` in your pom.xml to set the system properties. For example:
+
+```
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>properties-maven-plugin</artifactId>
+    <executions>
+        <execution>
+            <goals>
+                <goal>set-system-properties</goal>
+            </goals>
+            <configuration>
+                <properties>
+                    <property>
+                        <name>org.jboss.eap.datasources.postgresql.driver.version</name>
+                        <value>42.7.10</value>
+                    </property>
+                </properties>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+```

@@ -33,6 +33,10 @@
         <test.bootable.jar.name>test-wildfly-datasources.jar</test.bootable.jar.name>
         <test.preview.bootable.jar.name>test-wildfly-datasources-preview.jar</test.preview.bootable.jar.name>
         <test.preview.legacy.bootable.jar.name>test-wildfly-datasources-preview.jar</test.preview.legacy.bootable.jar.name>
+        <!-- Version used by the driver-version-override test; override on the CLI to test a different version.
+             The property name matches the Galleon resolution expression so that passing
+             -Dorg.wildfly.datasources.postgresql.driver.version=<ver> on the CLI overrides provisioning. -->
+        <org.wildfly.datasources.postgresql.driver.version>42.7.3</org.wildfly.datasources.postgresql.driver.version>
         <testLogToFile>true</testLogToFile>
         <node0>127.0.0.1</node0>
         <management.address>${node0}</management.address>
@@ -62,6 +66,11 @@
                 <configuration>
                     <failIfNoTests>false</failIfNoTests>
                     <redirectTestOutputToFile>${testLogToFile}</redirectTestOutputToFile>
+                    <!-- Exclude the driver-version-override test from all general executions;
+                         it is run by the dedicated test-driver-version-override execution. -->
+                    <excludes>
+                        <exclude>**/DriverVersionTestCase.java</exclude>
+                    </excludes>
                     <systemPropertyVariables>
                         <wildfly.bootable.jar>true</wildfly.bootable.jar>
                         <management.address>${management.address}</management.address>

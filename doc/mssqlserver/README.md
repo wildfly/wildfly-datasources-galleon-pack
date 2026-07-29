@@ -5,6 +5,24 @@ Galleon Layers
 * `mssqlserver-datasource`: Provision the `MSSQLServerDS` non xa datasource. Depends on `mssqlserver-driver` layer.
 * `mssqlserver-driver`: Provision the `mssqlserver` driver. This layer installs the JBoss Modules module `com.microsoft.sqlserver`.
 
+Build time configuration
+========================
+
+The following variable can be set at Galleon provisioning time to override the
+default driver version that is embedded in the feature pack.
+
+Optional configuration
+-----------------------
+
+* `MSSQLSERVER_DRIVER_VERSION`
+
+  * Description: The version of the `com.microsoft.sqlserver:mssql-jdbc` Maven artifact.
+    When set, this version is used instead of the default version bundled with the
+    feature pack.
+  * Default value: current version bundled with the feature pack
+  * Required: False
+  * System Property: `org.wildfly.datasources.mssqlserver.driver.version`
+
 Configuration
 ========
 

@@ -5,6 +5,24 @@ Galleon Layers
 * `h2database-datasource`: Provision the `H2DatabaseDS` non xa datasource. Depends on `h2database-driver` layer.
 * `h2database-driver`: Provision the `h2database` driver. This layer installs the JBoss Modules module `com.h2database.h2database`.
 
+Build time configuration
+========================
+
+The following variable can be set at Galleon provisioning time to override the
+default driver version that is embedded in the feature pack.
+
+Optional configuration
+-----------------------
+
+* `H2DATABASE_DRIVER_VERSION`
+
+  * Description: The version of the `com.h2database:h2` Maven artifact.
+    When set, this version is used instead of the default version bundled with the
+    feature pack.
+  * Default value: current version bundled with the feature pack
+  * Required: False
+  * System Property: `org.wildfly.datasources.h2database.driver.version`
+
 Configuration
 ========
 
