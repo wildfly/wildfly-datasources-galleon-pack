@@ -5,6 +5,24 @@ Galleon Layers
 * `mariadb-datasource`: Provision the `MariaDBDS` non xa datasource. Depends on `mariadb-driver` layer.
 * `mariadb-driver`: Provision the `mariadb` driver. This layer installs the JBoss Modules module `org.mariadb.jdbc`.
 
+Build time configuration
+========================
+
+The following variable can be set at Galleon provisioning time to override the
+default driver version that is embedded in the feature pack.
+
+Optional configuration
+-----------------------
+
+* `MARIADB_DRIVER_VERSION`
+
+  * Description: The version of the `org.mariadb.jdbc:mariadb-java-client` Maven artifact.
+    When set, this version is used instead of the default version bundled with the
+    feature pack.
+  * Default value: current version bundled with the feature pack
+  * Required: False
+  * System Property: `org.wildfly.datasources.mariadb.driver.version`
+
 Configuration
 ========
 

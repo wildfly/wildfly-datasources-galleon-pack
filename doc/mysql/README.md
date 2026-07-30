@@ -5,6 +5,24 @@ Galleon Layers
 * `mysql-datasource`: Provision the `MySQLDS` non xa datasource. Depends on `mysql-driver` layer.
 * `mysql-driver`: Provision the `mysql` driver. This layer installs the JBoss Modules module `com.mysql.jdbc`.
 
+Build time configuration
+========================
+
+The following variable can be set at Galleon provisioning time to override the
+default driver version that is embedded in the feature pack.
+
+Optional configuration
+-----------------------
+
+* `MYSQL_DRIVER_VERSION`
+
+  * Description: The version of the `com.mysql:mysql-connector-j` Maven artifact.
+    When set, this version is used instead of the default version bundled with the
+    feature pack.
+  * Default value: current version bundled with the feature pack
+  * Required: False
+  * System Property: `org.wildfly.datasources.mysql.driver.version`
+
 Configuration
 ========
 

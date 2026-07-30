@@ -160,19 +160,73 @@
                             <bootable-jar-name>${test.preview.legacy.bootable.jar.name}</bootable-jar-name>
                         </configuration>
                     </execution>
+                   <execution>
+                       <id>build-driver-version-override-server</id>
+                       <goals>
+                           <goal>package</goal>
+                       </goals>
+                       <!-- Must run after properties-maven-plugin set-system-properties
+                            so Galleon resolves org.wildfly.datasources.postgresql.driver.version -->
+                       <phase>test-compile</phase>
+                       <configuration>
+                           <feature-packs>
+                               <feature-pack>
+                                   <groupId>org.wildfly</groupId>
+                                   <artifactId>wildfly-ee-galleon-pack</artifactId>
+                                   <version>${version.org.wildfly}</version>
+                               </feature-pack>
+                               <feature-pack>
+                                   <groupId>${project.groupId}</groupId>
+                                   <artifactId>wildfly-datasources-galleon-pack</artifactId>
+                                   <version>${project.version}</version>
+                               </feature-pack>
+                           </feature-packs>
+                           <layers>
+                               <layer>postgresql-driver</layer>
+                           </layers>
+                           <bootable-jar>false</bootable-jar>
+                           <provisioning-dir>server-driver-version-override</provisioning-dir>
+                           <galleon-options>
+                               <jboss-fork-embedded>${plugin.fork.embedded}</jboss-fork-embedded>
+                           </galleon-options>
+                       </configuration>
+                   </execution>
+                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>set-driver-version-system-properties</id>
+                        <goals>
+                            <goal>set-system-properties</goal>
+                        </goals>
+                        <!-- Must run before test-compile so the property is visible
+                             to wildfly-maven-plugin when it provisions the server -->
+                        <phase>generate-test-sources</phase>
+                        <configuration>
+                            <properties>
+                                <property>
+                                    <name>org.wildfly.datasources.postgresql.driver.version</name>
+                                    <value>${org.wildfly.datasources.postgresql.driver.version}</value>
+                                </property>
+                            </properties>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>default-test</id>
-                        <goals>
-                            <goal>test</goal>
-                        </goals>
-                        <phase>NONE</phase>
-                    </execution>
+                 <executions>
+                     <execution>
+                         <id>default-test</id>
+                         <goals>
+                             <goal>test</goal>
+                         </goals>
+                         <phase>NONE</phase>
+                     </execution>
                     <execution>
                         <id>test-no-env</id>
                         <goals>
@@ -919,6 +973,26 @@
                             </environmentVariables>
                         </configuration>
                     </execution>
+                     <execution>
+                         <id>test-driver-version-override</id>
+                         <goals>
+                             <goal>test</goal>
+                         </goals>
+                         <phase>test</phase>
+                         <configuration>
+                             <includes>
+                                 <include>**/DriverVersionTestCase.java</include>
+                             </includes>
+                             <!-- Cancel the parent-inherited excludes so this class is not filtered out -->
+                             <excludes>
+                                 <exclude>nothing</exclude>
+                             </excludes>
+                             <systemPropertyVariables>
+                                 <test.server.dir>${project.build.directory}/server-driver-version-override</test.server.dir>
+                                 <org.wildfly.datasources.postgresql.driver.version>${org.wildfly.datasources.postgresql.driver.version}</org.wildfly.datasources.postgresql.driver.version>
+                             </systemPropertyVariables>
+                         </configuration>
+                     </execution>
                 </executions>
             </plugin>
         </plugins>

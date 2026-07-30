@@ -5,6 +5,24 @@ Galleon Layers
 * `oracle-datasource`: Provision the `OracleDS` non xa datasource. Depends on `oracle-driver` layer.
 * `oracle-driver`: Provision the `oracle` driver. This layer installs the JBoss Modules module `com.oracle.database.jdbc`.
 
+Build time configuration
+========================
+
+The following variable can be set at Galleon provisioning time to override the
+default driver version that is embedded in the feature pack.
+
+Optional configuration
+-----------------------
+
+* `ORACLE_DRIVER_VERSION`
+
+  * Description: The version of the `com.oracle.database.jdbc:ojdbc17` Maven artifact.
+    When set, this version is used instead of the default version bundled with the
+    feature pack.
+  * Default value: current version bundled with the feature pack
+  * Required: False
+  * System Property: `org.wildfly.datasources.oracle.driver.version`
+
 Configuration
 ========
 
