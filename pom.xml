@@ -52,7 +52,7 @@
         <version.junit>4.13.2</version.junit>
         <version.com.mysql.mysql-connector-j>9.7.0</version.com.mysql.mysql-connector-j>
         <version.org.jboss.jboss-dmr>1.7.0.Final</version.org.jboss.jboss-dmr>
-        <version.org.jboss.shrinkwrap>1.2.6</version.org.jboss.shrinkwrap>
+        <version.org.jboss.shrinkwrap>2.0.0.Final</version.org.jboss.shrinkwrap>
         <version.org.mariadb>3.5.10</version.org.mariadb>
         <version.org.wildfly>41.0.0.Final</version.org.wildfly>
         <version.org.wildfly.core>33.0.0.Final</version.org.wildfly.core>
